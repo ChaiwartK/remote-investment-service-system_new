@@ -1,6 +1,17 @@
-<div>
-    <div id="navigatorBar"><app-sidenav (toggleSideNav)="onToggleSideNav($event)"></app-sidenav></div>
-    <div id="headerBar">HeaderBar</div>
-    <div id="content"><router-outlet></router-outlet></div>
-    <div id="footer"><app-app-footer></app-app-footer></div>
-</div>
+<nz-layout>
+    <app-menu></app-menu>
+    <nz-layout>
+        <nz-header>
+            <span class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" tabindex="0"
+                (click)="isCollapsed = !isCollapsed"></span>
+        </nz-header>
+        <nz-content>
+            <nz-breadcrumb>
+                <nz-breadcrumb-item>User</nz-breadcrumb-item>
+                <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
+            </nz-breadcrumb>
+            <div class="inner-content">Test Content</div>
+        </nz-content>
+        <nz-footer><app-footer></app-footer></nz-footer>
+    </nz-layout>
+</nz-layout>

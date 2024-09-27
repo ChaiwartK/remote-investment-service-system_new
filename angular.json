@@ -40,7 +40,14 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/ng-zorro-antd/src/ng-zorro-antd.min.css",
+              "node_modules/ng-zorro-antd/resizable/style/index.min.css",
+              "node_modules/ng-zorro-antd/code-editor/style/index.min.css",
+              "node_modules/ng-zorro-antd/graph/style/index.min.css",
+              "src/styles.scss",
+              "src/assets/scss/main.scss",
+              "src/assets/scss/variables.scss",
+              "src/assets/scss/layout/layout-style.scss"
             ],
             "scripts": []
           },
