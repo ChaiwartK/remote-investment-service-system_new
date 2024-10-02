@@ -1,0 +1,27 @@
+<div class="registration-main">
+    <div class="header" nz-row [nzGutter]="24">
+        <div style="align-content: center;">Category<em>* </em></div>
+        <span style="margin-left: 5px;" nz-icon nzType="question-circle" nzTheme="outline"></span>
+        <div nz-col [nzSpan]="8">
+            <nz-select [(ngModel)]="category" [nzSize]="size" nzShowSearch nzPlaceHolder="Select category">
+                @for (option of listCategory; track option.value) {
+                <nz-option [nzLabel]="option.label" [nzValue]="option.value"></nz-option>
+                }
+            </nz-select>
+        </div>
+        <div nz-col nzSm="6" nzMd="8" nzLg="10">
+            <nz-input-group nzPrefixIcon="search" [nzSuffix]="inputClearTpl" [nzSize]="size">
+                <input [(ngModel)]="categorySearch" nz-input placeholder="Search" />
+            </nz-input-group>
+            <ng-template #inputClearTpl>
+                @if (categorySearch) {
+                <span nz-icon class="ant-input-clear-icon" nzTheme="fill" nzType="close-circle"
+                    (click)="categorySearch = null"></span>
+                }
+            </ng-template>
+        </div>
+        <div nz-col [nzSpan]="3">
+            <button nz-button [nzSize]="size" nzType="primary">Search</button>
+        </div>
+    </div>
+</div>

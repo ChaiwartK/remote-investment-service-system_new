@@ -1,0 +1,23 @@
+.registration-main {
+
+    font-family: DB Heavent;
+
+    .header {
+        background: #fff;
+        padding: 3%;
+    }
+
+    .question-icon {
+        width: 16px;
+        height: 16px;
+        color: #959199;
+    }
+
+    nz-select {
+        width: 100%;
+    }
+}
+
+::ng-deep .ant-select-arrow .anticon>svg {
+    color: #7731C1;
+}

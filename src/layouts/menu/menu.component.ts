@@ -12,73 +12,60 @@ export class MenuComponent {
   menus = [
     {
       level: 1,
-      title: 'Mail Group',
+      title: 'Registration',
       icon: 'mail',
+      route: '/riss/registration/main',
       open: true,
       selected: false,
       disabled: false,
-      children: [
-        {
-          level: 2,
-          title: 'Group 1',
-          icon: 'bars',
-          open: false,
-          selected: false,
-          disabled: false,
-          children: [
-            {
-              level: 3,
-              title: 'Option 1',
-              selected: false,
-              disabled: false
-            },
-            {
-              level: 3,
-              title: 'Option 2',
-              selected: false,
-              disabled: true
-            }
-          ]
-        },
-        {
-          level: 2,
-          title: 'Group 2',
-          icon: 'bars',
-          selected: true,
-          disabled: false
-        },
-        {
-          level: 2,
-          title: 'Group 3',
-          icon: 'bars',
-          selected: false,
-          disabled: false
-        }
-      ]
     },
     {
       level: 1,
-      title: 'Team Group',
-      icon: 'team',
+      title: 'Transaction',
+      icon: 'mail',
+      route: '/riss/transaction/main',
+      open: true,
+      selected: false,
+      disabled: false,
+    },
+    {
+      level: 1,
+      title: 'Maintenance',
+      icon: 'mail',
+      route: '/riss/maintenance/main',
+      open: true,
+      selected: false,
+      disabled: false,
+    },
+    {
+      level: 1,
+      title: 'RISS Report',
+      icon: 'mail',
       open: false,
       selected: false,
       disabled: false,
       children: [
         {
           level: 2,
-          title: 'User 1',
-          icon: 'user',
+          title: 'Buy / switch in',
+          icon: 'bars',
+          route: '/riss/report/buy',
           selected: false,
-          disabled: false
+          disabled: false,
         },
         {
           level: 2,
-          title: 'User 2',
-          icon: 'user',
+          title: 'Sell / switch out',
+          icon: 'bars',
+          route: '/riss/report/sell',
           selected: false,
           disabled: false
-        }
+        },
       ]
-    }
+    },
   ];
+
+  toggleCollapsed(): void {
+    this.isCollapsed = !this.isCollapsed;
+  }
 }

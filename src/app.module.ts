@@ -22,6 +22,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { Error404Component } from './pages/error/error404/error404.component';
 import { MenuComponent } from './layouts/menu/menu.component';
 import { HttpHeaderInterceptor } from './services/Interceptor/http-header.interceptor';
+import { TransactionMainComponent } from './pages/transaction/transaction-main/transaction-main.component';
+import { MaintenanceMainComponent } from './pages/maintenance/maintenance-main/maintenance-main.component';
 
 registerLocaleData(en);
 
@@ -37,6 +39,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     Error404Component,
     MenuComponent,
     HomeComponent,
+    TransactionMainComponent,
+    MaintenanceMainComponent,
   ],
   imports: [
     FormsModule,

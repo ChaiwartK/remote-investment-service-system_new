@@ -4,6 +4,7 @@
     padding: 0 24px;
     cursor: pointer;
     transition: color 0.3s;
+    color: white;
 }
 
 .trigger:hover {
@@ -16,13 +17,33 @@
     margin: 16px;
 }
 
+.scb-logo {
+    min-height: 25px;
+    background-image: url("../assets/icons/scb-logo.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    cursor: pointer;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+.scb-font {
+    font-family: DB Heavent;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 26px;
+    text-align: left;
+    margin-left: 28px;
+}
+
 nz-header {
     background: #fff;
     padding: 0;
 }
 
 nz-content {
-    margin: 0 16px;
+    margin: 0 0px;
 }
 
 nz-breadcrumb {

@@ -2,18 +2,37 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../pages/home/home.component';
 import { Error404Component } from '../pages/error/error404/error404.component';
-import { LayoutComponent } from '../layouts/layout.component';
 
 const appRoutes: Routes = [
   {
-    path: '',
-    component: LayoutComponent,
+    path: 'riss',
     children: [
-      { path: 'home', component: HomeComponent },
+      {
+        path: 'registration',
+        loadChildren: () => import('../pages/registration/registration.module').then(m => m.RegistrationModule)
+      },
+      {
+        path: 'maintenance',
+        loadChildren: () => import('../pages/maintenance/maintenance.module').then(m => m.MaintenanceModule)
+      },
+      {
+        path: 'transaction',
+        loadChildren: () => import('../pages/transaction/transaction.module').then(m => m.TransactionModule)
+      },
     ]
   },
-  { path: '404', component: Error404Component },
-  { path: '**', redirectTo: '404' },
+  {
+    path: '',
+    component: HomeComponent,
+  },
+  {
+    path: '404',
+    component: Error404Component
+  },
+  {
+    path: '**',
+    redirectTo: '404'
+  },
 ];
 
 @NgModule({

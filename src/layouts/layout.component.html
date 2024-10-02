@@ -1,38 +1,22 @@
 <nz-layout>
     <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
-        <div class="logo"></div>
+        <div class="logo">
+            <span class="trigger" nz-icon [nzType]="isCollapsed ? 'menu' : 'close'" tabindex="0"
+                (click)="isCollapsed = !isCollapsed"></span>
+        </div>
         <app-menu></app-menu>
-        <!-- <ul nz-menu nzTheme="dark" nzMode="inline">
-            <li nz-submenu nzTitle="User" nzIcon="user">
-                <ul>
-                    <li nz-menu-item>Tom</li>
-                    <li nz-menu-item>Bill</li>
-                    <li nz-menu-item>Alex</li>
-                </ul>
-            </li>
-            <li nz-submenu nzTitle="Team" nzIcon="team">
-                <ul>
-                    <li nz-menu-item>Team 1</li>
-                    <li nz-menu-item>Team 2</li>
-                </ul>
-            </li>
-            <li nz-menu-item>
-                <span nz-icon nzType="file"></span>
-                <span>File</span>
-            </li>
-        </ul> -->
     </nz-sider>
     <nz-layout>
         <nz-header>
-            <span class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" tabindex="0"
-                (click)="isCollapsed = !isCollapsed"></span>
+            <div class="scb-logo">
+                <div class="scb-font">
+                    <span> Remote Investment service system</span>
+                </div>
+            </div>
         </nz-header>
+        <hr />
         <nz-content>
-            <nz-breadcrumb>
-                <nz-breadcrumb-item>User</nz-breadcrumb-item>
-                <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
-            </nz-breadcrumb>
-            <div class="inner-content">Test Content</div>
+            <router-outlet></router-outlet>
         </nz-content>
         <nz-footer><app-footer></app-footer></nz-footer>
     </nz-layout>
