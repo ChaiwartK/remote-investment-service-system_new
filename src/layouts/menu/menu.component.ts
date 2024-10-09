@@ -5,15 +5,17 @@ import { Component } from '@angular/core';
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })
+
 export class MenuComponent {
+  menuType = 'WO';
   isCollapsed = false;
-  mode = false;
-  dark = false;
-  menus = [
+  mode = true;
+  theme = false;
+  munuRmType = [
     {
       level: 1,
       title: 'Registration',
-      icon: 'mail',
+      icon: 'user-add',
       route: '/riss/registration/main',
       open: true,
       selected: false,
@@ -22,7 +24,7 @@ export class MenuComponent {
     {
       level: 1,
       title: 'Transaction',
-      icon: 'mail',
+      icon: 'file-add',
       route: '/riss/transaction/main',
       open: true,
       selected: false,
@@ -31,7 +33,7 @@ export class MenuComponent {
     {
       level: 1,
       title: 'Maintenance',
-      icon: 'mail',
+      icon: 'setting',
       route: '/riss/maintenance/main',
       open: true,
       selected: false,
@@ -40,7 +42,7 @@ export class MenuComponent {
     {
       level: 1,
       title: 'RISS Report',
-      icon: 'mail',
+      icon: 'book',
       open: false,
       selected: false,
       disabled: false,
@@ -48,7 +50,6 @@ export class MenuComponent {
         {
           level: 2,
           title: 'Buy / switch in',
-          icon: 'bars',
           route: '/riss/report/buy',
           selected: false,
           disabled: false,
@@ -56,7 +57,6 @@ export class MenuComponent {
         {
           level: 2,
           title: 'Sell / switch out',
-          icon: 'bars',
           route: '/riss/report/sell',
           selected: false,
           disabled: false
@@ -64,6 +64,92 @@ export class MenuComponent {
       ]
     },
   ];
+  munuWoType = [
+    {
+      level: 1,
+      title: 'Work basket',
+      icon: 'inbox',
+      open: false,
+      selected: false,
+      disabled: false,
+      children: [
+        {
+          level: 2,
+          title: 'Transaction basket',
+          route: '/riss/report/buy',
+          selected: false,
+          disabled: false,
+        },
+        {
+          level: 2,
+          title: 'Maintenance basket',
+          route: '/riss/report/sell',
+          selected: false,
+          disabled: false
+        },
+        {
+          level: 2,
+          title: 'Registration basket',
+          route: '/riss/report/sell',
+          selected: false,
+          disabled: false
+        },
+      ]
+    },
+    {
+      level: 1,
+      title: 'Transaction',
+      icon: 'file-add',
+      route: '/riss/transaction/main',
+      open: true,
+      selected: false,
+      disabled: false,
+    },
+    {
+      level: 1,
+      title: 'Maintenance',
+      icon: 'setting',
+      route: '/riss/maintenance/main',
+      open: true,
+      selected: false,
+      disabled: false,
+    },
+    {
+      level: 1,
+      title: 'Registration',
+      icon: 'user-add',
+      route: '/riss/registration/main',
+      open: true,
+      selected: false,
+      disabled: false,
+    },
+    {
+      level: 1,
+      title: 'RISS Report',
+      icon: 'book',
+      open: false,
+      selected: false,
+      disabled: false,
+      children: [
+        {
+          level: 2,
+          title: 'Buy / switch in',
+          route: '/riss/report/buy',
+          selected: false,
+          disabled: false,
+        },
+        {
+          level: 2,
+          title: 'Sell / switch out',
+          route: '/riss/report/sell',
+          selected: false,
+          disabled: false
+        },
+      ]
+    },
+  ];
+
+  menus = this.menuType == 'RM' ? this.munuRmType : this.munuWoType;
 
   toggleCollapsed(): void {
     this.isCollapsed = !this.isCollapsed;

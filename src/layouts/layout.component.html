@@ -1,20 +1,43 @@
 <nz-layout>
-    <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
-        <div class="logo">
-            <span class="trigger" nz-icon [nzType]="isCollapsed ? 'menu' : 'close'" tabindex="0"
+    <nz-sider [nzTheme]="theme ? 'dark' : 'light'" nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+        <div [ngClass]="isCollapsed ? 'logo-toggle text-center' : 'logo-toggle text-right'">
+            <span class="trigger" nz-icon [nzType]="isCollapsed ? 'menu' : 'double-left'" tabindex="0"
                 (click)="isCollapsed = !isCollapsed"></span>
         </div>
         <app-menu></app-menu>
     </nz-sider>
     <nz-layout>
-        <nz-header>
-            <div class="scb-logo">
-                <div class="scb-font">
-                    <span> Remote Investment service system</span>
+        <nz-header style="display: inline;">
+            <div class="container" style="padding-left: 0 !important;">
+                <div class="row">
+                    <div class="col-1 my-auto">
+                        <img class="mx-auto my-auto" src="../assets/icons/scb-logo.svg" width="35" height="35"
+                            alt="scb-logo">
+                    </div>
+                    <div class="col-7">
+                        <span class="scb-font">Remote Investment service system</span>
+                    </div>
+                    <div class="col-4 text-right">
+                        <span class="row">
+                            <span class="col"></span>
+                            <span class="col text-center">
+                                <button type="button" class="btn account-font">
+                                    <span class="icon" nz-icon nzType="smile" [ngModel]="userName"></span>
+                                    {{userName}}
+                                </button>
+                            </span>
+                            <span class="col text-center">
+                                <button type="button" class="btn account-font"
+                                    style="color: #7731C1; font-weight: 500;">
+                                    <span class="icon" nz-icon nzType="logout"></span>
+                                    Logout
+                                </button>
+                            </span>
+                        </span>
+                    </div>
                 </div>
             </div>
         </nz-header>
-        <hr />
         <nz-content>
             <router-outlet></router-outlet>
         </nz-content>

@@ -1,45 +1,38 @@
 .trigger {
-    font-size: 18px;
-    line-height: 64px;
-    padding: 0 24px;
+    font-size: 22px;
+    padding: auto;
     cursor: pointer;
     transition: color 0.3s;
-    color: white;
+    color: #7731C1;
 }
 
 .trigger:hover {
-    color: #1890ff;
+    color: #7731C1;
 }
 
-.logo {
-    height: 32px;
-    background: rgba(255, 255, 255, 0.2);
-    margin: 16px;
-}
-
-.scb-logo {
-    min-height: 25px;
-    background-image: url("../assets/icons/scb-logo.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    position: relative;
-    cursor: pointer;
-    margin-top: 2%;
-    margin-left: 2%;
+.logo-toggle {
+    margin: 20px;
 }
 
 .scb-font {
-    font-family: DB Heavent;
     font-size: 28px;
     font-weight: 500;
-    line-height: 26px;
-    text-align: left;
-    margin-left: 28px;
+}
+
+.account-font {
+    font-size: 18px;
+    font-weight: 200;
+}
+
+.icon {
+    margin-right: 8px;
 }
 
 nz-header {
     background: #fff;
     padding: 0;
+    border-left: 2px solid #EFE7F7;
+    border-bottom: 2px solid #EFE7F7;
 }
 
 nz-content {

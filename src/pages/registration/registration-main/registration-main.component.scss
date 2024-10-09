@@ -1,23 +1,281 @@
-.registration-main {
+.cetegory-card{
+    border-radius: 0;
+    border: 0;
+    margin: 0;
+}
 
-    font-family: DB Heavent;
+.card-body {
+    padding-top: 0;
+}
 
-    .header {
-        background: #fff;
-        padding: 3%;
-    }
+nz-select{
+    width: 100%;
+}
 
-    .question-icon {
-        width: 16px;
-        height: 16px;
-        color: #959199;
-    }
-
-    nz-select {
-        width: 100%;
-    }
+.menu-ca{
+    font-size: 18px;
+    align-items: center;
+    display: flex;
 }
 
 ::ng-deep .ant-select-arrow .anticon>svg {
     color: #7731C1;
+}
+
+nz-menu{
+    color: #ff0000;
+}
+
+.validate{
+    color: #ff0000;
+}
+
+.custom-tooltip {
+    background-color: #7731AE !important;
+    color: white;
+}
+
+.custom-tooltip .ant-tooltip-arrow {
+    border-top-color: #7731AE !important;
+    border-bottom-color: #7731AE !important;
+}
+
+
+
+.custom-menu .ant-menu-item-selected {
+    color: #7731AE !important;
+    font-weight: bolder;
+}
+
+
+.custom-menu .ant-menu-item {
+    color: #000;
+}
+
+.custom-menu .ant-menu-item:hover {
+    color: #7731AE; 
+}
+
+
+
+// ไว้สำหรับ ขีดเส้นใต้สีม่วง
+.ant-menu-horizontal:not(.ant-menu-dark) > 
+.ant-menu-item-active::after, 
+.ant-menu-horizontal:not(.ant-menu-dark) > 
+.ant-menu-item-open::after, 
+.ant-menu-horizontal:not(.ant-menu-dark) > 
+.ant-menu-item-selected::after, 
+.ant-menu-horizontal:not(.ant-menu-dark) > 
+.ant-menu-item:hover::after,
+.ant-menu-horizontal:not(.ant-menu-dark) > 
+.ant-menu-submenu-active::after,
+.ant-menu-horizontal:not(.ant-menu-dark) > 
+.ant-menu-submenu-open::after, 
+.ant-menu-horizontal:not(.ant-menu-dark) > 
+.ant-menu-submenu-selected::after, 
+.ant-menu-horizontal:not(.ant-menu-dark) > 
+.ant-menu-submenu:hover::after {
+    border-bottom: 2px solid #7731AE;
+}
+
+
+.search-space{
+    display: flex;
+    align-items: center;
+
+    
+    .search-button {
+        border-radius: 6px;
+        background-color: #8000ff; 
+        color: white;
+        width: 118px;
+    }
+    
+    .search-button :hover {
+    box-shadow: none;
+    }
+
+    .search-button.disabled {
+        background-color: #d9d9d9; /* สีเทา */
+        color: #999999; /* ข้อความสีอ่อนลง */
+        cursor: not-allowed; /* เปลี่ยนเป็น cursor แบบไม่อนุญาต */
+    }
+}
+
+
+.space-table{
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+
+.table-responsive {
+    overflow-x: auto; 
+    .nz-table th {
+        background-color: #EAB8E4; 
+        color: #000;
+    }
+    
+    .nz-table tbody tr.even-row {
+        background-color: #f5f5f5;
+    }
+    
+    .nz-table tbody tr {
+        background-color: #fff; 
+    }    
+}
+
+
+
+    .re-submit-resub{
+        background-color: #F1F8FF; 
+        border: 0.5px solid #4BA1FF; 
+        color: #4BA1FF;
+        border-radius: 4px; 
+        padding: 5px 10px; 
+        font-size: 12px; 
+        font-weight: bold; 
+        text-align: center; 
+        width: fit-content; 
+        margin: 10px;
+        width: 80px;
+    }
+
+    .re-submit-pending{
+        background-color: #FFF7E0; 
+        border: 0.5px solid #FFD14D; 
+        color: #FFD14D;
+        border-radius: 4px; 
+        padding: 5px 10px; 
+        font-size: 12px; 
+        font-weight: bold; 
+        text-align: center; 
+        width: fit-content; 
+        margin: 10px;
+        width: 80px;
+    }
+
+    .re-submit-app{
+        background-color: #E6F7EB; 
+        border: 0.5px solid #9BDFAE; 
+        color: #9BDFAE;
+        border-radius: 4px; 
+        padding: 5px 10px; 
+        font-size: 12px; 
+        font-weight: bold; 
+        text-align: center; 
+        width: fit-content; 
+        margin: 10px;
+        width: 80px;
+    }
+    .re-submit-reject{
+        background-color: #FEEDF0; 
+        border: 0.5px solid #EEA0A4; 
+        color: #EEA0A4;
+        border-radius: 4px; 
+        padding: 5px 10px; 
+        font-size: 12px; 
+        font-weight: bold; 
+        text-align: center; 
+        width: fit-content; 
+        margin: 10px;
+        width: 80px;
+    }
+    .re-submit-draft{
+        background-color: #F4F4F4; 
+        border: 0.5px solid #DEDCE0; 
+        color: #DEDCE0;
+        border-radius: 4px; 
+        padding: 5px 10px; 
+        font-size: 12px; 
+        font-weight: bold; 
+        text-align: center; 
+        width: fit-content; 
+        margin: 10px;
+        width: 80px;
+    }
+
+
+
+
+.table-thead{
+    background-color: #4BA1FF;
+}
+
+
+th {
+    color: #736E78 !important;
+    background: #EFE7F780 !important;
+}
+
+a{
+    text-decoration: underline;
+     color: #3B82F6;
+}
+
+tr:nth-child(even) {
+    background-color: #F4F4F480; /* สีเทา */
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff; /* สีขาว */
+}
+
+.space-left {
+	float: left;
+}
+.space-right {
+	float: right;
+}
+
+.icon-text {
+    display: flex;              
+    align-items: center;  
+}
+
+.icon-text span {
+    margin-left: 8px; 
+    color: #7731AE;
+    font-weight: 500;
+}
+
+
+.title-table{
+    font-size: 30px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.header-table{
+    align-items: center;
+    display: flex;
+    
+}
+
+.bg-silver{
+    background-color: #F4F4F4;
+    color: #C9C6CD;
+    border-radius: 6px;
+    border: none;
+}
+
+.bg-create{
+    background-color: #7731C1;
+    color: #ffffff;
+    border-radius: 6px;
+    border: none;
+}
+
+
+
+nz-date-picker{
+    width: 100%;
+}
+
+
+#pignation-space {
+    display: flex; /* ใช้ Flexbox */
+    justify-content: space-between; /* จัดให้ฝั่งซ้ายและขวาชิดกัน */
+    align-items: center; /* จัดแนวในแนวตั้งให้กลาง */
 }

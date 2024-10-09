@@ -5,6 +5,9 @@ import { Component } from '@angular/core';
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss'
 })
+
 export class LayoutComponent {
+  userName: string = 'Edward';
   isCollapsed = false;
+  theme = false;
 }

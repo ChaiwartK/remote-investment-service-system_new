@@ -1,5 +1,5 @@
-<div>
-    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+<div class="wrapper">
+    <ul nz-menu [nzTheme]="theme ? 'dark' : 'light'" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
         <ng-container *ngTemplateOutlet="menuTpl; context: { $implicit: menus }"></ng-container>
         <ng-template #menuTpl let-menus>
             @for (menu of menus; track menu) {
@@ -9,7 +9,7 @@
                 @if (menu.icon) {
                 <span nz-icon [nzType]="menu.icon"></span>
                 }
-                <span>{{ menu.title }}</span>
+                <span *ngIf="!isCollapsed">{{ menu.title }}</span>
             </li>
             } @else {
             <li nz-submenu [nzPaddingLeft]="menu.level * 24" [nzOpen]="menu.open" [nzTitle]="menu.title"

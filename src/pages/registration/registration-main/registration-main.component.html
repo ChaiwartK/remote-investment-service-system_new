@@ -1,27 +1,188 @@
-<div class="registration-main">
-    <div class="header" nz-row [nzGutter]="24">
-        <div style="align-content: center;">Category<em>* </em></div>
-        <span style="margin-left: 5px;" nz-icon nzType="question-circle" nzTheme="outline"></span>
-        <div nz-col [nzSpan]="8">
-            <nz-select [(ngModel)]="category" [nzSize]="size" nzShowSearch nzPlaceHolder="Select category">
-                @for (option of listCategory; track option.value) {
-                <nz-option [nzLabel]="option.label" [nzValue]="option.value"></nz-option>
-                }
-            </nz-select>
+<!-- setting option start -->
+<div class="cetegory-card card ">
+    <div class="card-body mt-4 ">
+        <div class="row">
+            <div class="col-3">
+                <div class="row g-3 align-items-center menu-ca">
+                    <div class="col-auto">
+                        <h1>Category<span class="validate me-2">*</span>
+                            <span nz-tooltip nzTooltipTitle="กรุณาเลือกหมวดหมู่ที่ต้องการ เพื่อค้นหาข้อมูลที่คุณสนใจ"
+                                nzTooltipPlacement="top" nzTooltipOverlayClassName="custom-tooltip"
+                                [nzTooltipColor]="'#7731C1'">
+                                <span nz-icon nzType="question-circle" nzTheme="outline" class="text-secondary"></span>
+                            </span>
+                        </h1>
+                    </div>
+                    <div class="col">
+                        <nz-select [(ngModel)]="category" nzSize="large" nzShowSearch nzPlaceHolder="Select category"
+                            class="select-options">
+                            @for (option of listCategory; track option.value) {
+                            <nz-option [nzLabel]="option.label" [nzValue]="option.value"></nz-option>
+                            }
+                        </nz-select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9 search-space">
+                <input nz-input [(ngModel)]="categorySearch" *ngIf="category === '0'"
+                    placeholder="Search clientName or RM name" class="input-search me-2" nzSize="large" />
+
+                <input nz-input [(ngModel)]="categorySearch" *ngIf="category === '1'" placeholder="Search nationalID"
+                    class="input-search me-2" nzSize="large" />
+
+                <nz-date-picker [(ngModel)]="startValue" nzFormat="dd-MM-yyyy" class="me-2" nzSize="large"
+                    *ngIf="category === '2'" nzPlaceHolder="Start Date">
+                </nz-date-picker>
+
+                <nz-date-picker [(ngModel)]="endValue" nzFormat="dd-MM-yyyy" class="me-2" nzSize="large"
+                    *ngIf="category === '2'" nzPlaceHolder="End Date">
+                </nz-date-picker>
+
+                <nz-select [(ngModel)]="categorySearch" nzSize="large" *ngIf="category === '3'" nzShowSearch
+                    nzPlaceHolder="Select role" class="select-options me-2">
+                    <nz-option *ngFor="let role of listRole" [nzLabel]="role.label" [nzValue]="role.value">
+                    </nz-option>
+                </nz-select>
+
+                <input nz-input [(ngModel)]="categorySearch" *ngIf="category === '4'" placeholder="Search RegisId"
+                    class="input-search me-2" nzSize="large" />
+
+                <!-- ปุ่ม Search จะเป็นสีเทา (disabled) ถ้ายังไม่มีการเลือกหรือกรอกข้อมูล -->
+                <button nz-button nzSize="large" class="search-button" [ngClass]="{
+                        'disabled': !(
+                        (category === '0' && categorySearch?.trim()) || 
+                        (category === '1' && categorySearch?.trim()) ||
+                        (category === '2' && startValue && endValue) || 
+                        (category === '3' && categorySearch) || 
+                        (category === '4' && categorySearch?.trim())
+                        )}" [disabled]="!(
+                        (category === '0' && categorySearch?.trim()) || 
+                        (category === '1' && categorySearch?.trim()) ||
+                        (category === '2' && startValue && endValue) || 
+                        (category === '3' && categorySearch) || 
+                        (category === '4' && categorySearch?.trim())
+                    )" (click)="submitSearch()">
+                    Search
+                </button>
+            </div>
+
+
+
         </div>
-        <div nz-col nzSm="6" nzMd="8" nzLg="10">
-            <nz-input-group nzPrefixIcon="search" [nzSuffix]="inputClearTpl" [nzSize]="size">
-                <input [(ngModel)]="categorySearch" nz-input placeholder="Search" />
-            </nz-input-group>
-            <ng-template #inputClearTpl>
-                @if (categorySearch) {
-                <span nz-icon class="ant-input-clear-icon" nzTheme="fill" nzType="close-circle"
-                    (click)="categorySearch = null"></span>
-                }
-            </ng-template>
-        </div>
-        <div nz-col [nzSpan]="3">
-            <button nz-button [nzSize]="size" nzType="primary">Search</button>
+
+    </div>
+    <ul nz-menu nzMode="horizontal" class="custom-menu">
+        <li nz-menu-item [nzSelected]="selectedStatus === 'ALL'" (click)="filterData('ALL')">
+            ALL ({{ listOfData.length }})
+        </li>
+        <li nz-menu-item [nzSelected]="selectedStatus === 'Resubmit'" (click)="filterData('Resubmit')">
+            Resubmit ({{ getStatusCount('Resubmit') }})
+        </li>
+        <li nz-menu-item [nzSelected]="selectedStatus === 'Pending'" (click)="filterData('Pending')">
+            Pending ({{ getStatusCount('Pending') }})
+        </li>
+        <li nz-menu-item [nzSelected]="selectedStatus === 'Approved'" (click)="filterData('Approved')">
+            Approved ({{ getStatusCount('Approved') }})
+        </li>
+        <li nz-menu-item [nzSelected]="selectedStatus === 'Rejected'" (click)="filterData('Rejected')">
+            Rejected ({{ getStatusCount('Rejected') }})
+        </li>
+        <li nz-menu-item [nzSelected]="selectedStatus === 'Draft'" (click)="filterData('Draft')">
+            Draft ({{ getStatusCount('Draft') }})
+        </li>
+    </ul>
+</div>
+<div class="card space-table">
+    <div class="card-body">
+        <div class="card border-0">
+            <div class="site-page-header-ghost-wrapper">
+                <nz-page-header>
+                    <nz-page-header-title>Registration</nz-page-header-title>
+                    <nz-page-header-extra>
+                        <nz-space>
+                            <button nz-button class="bg-silver" [nzSize]="size" *nzSpaceItem>
+                                <span nz-icon nzType="download"></span>
+                                Download
+                            </button>
+                            <button nz-button class="bg-create" [nzSize]="size" *nzSpaceItem (click)="goToCreate()">
+                                <span nz-icon nzType="plus-circle" class="mb-5"></span>
+                                Create
+                              </button>                              
+                        </nz-space>
+                    </nz-page-header-extra>
+                </nz-page-header>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive bg-white">
+                    <!-- <nz-table #basicTable [nzData]="filteredData" [nzPageSize]="10" [nzShowPagination]="true"> -->
+                        <nz-table #basicTable [nzData]="filteredData" [nzPageSize]="10" [nzShowPagination]="false">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <div class="justify-content-center d-flex">
+                                        <label nz-checkbox [(ngModel)]="checked"></label>
+                                    </div>
+                                </th>
+                                <th>Last update</th>
+                                <th>Registration ID</th>
+                                <th>Client name / National ID</th>
+                                <th>Create date</th>
+                                <th>Status</th>
+                                <th>Role</th>
+                                <th>RM name</th>
+                                <th>Approver 1</th>
+                                <th>Approver 2</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of basicTable.data">
+                                <td>
+                                    <div class="justify-content-center d-flex">
+                                        <label nz-checkbox [(ngModel)]="checked" class="custom-checkbox"></label>
+                                    </div>
+                                </td>
+                                <td>{{ data.lastupDate | date:'dd/MM/yyyy' }}</td>
+                                <td>
+                                    <a href="">{{ data.RegisId }}</a>
+                                </td>
+                                <td>
+                                    <span>{{ data.clientName }}</span>
+                                    <br>
+                                    <span>{{ data.nationalID }}</span>
+                                </td>
+                                <td>{{ data.createDate | date:'dd/MM/yyyy' }}</td>
+                                <td>
+                                    <div class="re-submit-resub" *ngIf="data.statusType === 'Resubmit'">Re-submit</div>
+                                    <div class="re-submit-pending" *ngIf="data.statusType === 'Pending'">Pending</div>
+                                    <div class="re-submit-app" *ngIf="data.statusType === 'Approved'">Approved</div>
+                                    <div class="re-submit-reject" *ngIf="data.statusType === 'Rejected'">Rejected</div>
+                                    <div class="re-submit-draft" *ngIf="data.statusType === 'Draft'">Draft</div>
+                                </td>
+                                <td>{{ data.roleName }}</td>
+                                <td>{{ data.rmName }}</td>
+                                <td>{{ data.rmName }}</td>
+                                <td>{{ data.approveName }}</td>
+                                <td>
+                                    <div class="icon-text">
+                                        <span nz-icon nzType="eye" nzTheme="outline"></span>
+                                        <span>view</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </nz-table>
+
+                    <div class="card-body p-5">
+                        <div id="pignation-space" class="d-flex justify-content-between align-items-center">
+                            <div class="space-left">Result display 10 lists from all 100 lists</div>
+                            <nz-pagination [(nzPageIndex)]="currentPage" [nzTotal]="totalData" nzShowSizeChanger [(nzPageSize)]="perPage"></nz-pagination>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
         </div>
     </div>
 </div>
+<!-- setting option end -->

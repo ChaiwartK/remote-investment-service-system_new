@@ -6,11 +6,15 @@ import { RegistrationMainComponent } from './registration-main/registration-main
 import { NgZorroAntdModule } from '../../plugins/ng-zorro-antd-module.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzFormModule } from 'ng-zorro-antd/form';
+import { RegisDetailComponent } from './regis-detail/regis-detail.component';
+import { RegisCreateComponent } from './regis-create/regis-create.component';
 
 
 @NgModule({
   declarations: [
     RegistrationMainComponent,
+    RegisDetailComponent,
+    RegisCreateComponent,
   ],
   imports: [
     CommonModule,

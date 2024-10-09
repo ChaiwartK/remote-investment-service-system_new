@@ -24,6 +24,7 @@ import { MenuComponent } from './layouts/menu/menu.component';
 import { HttpHeaderInterceptor } from './services/Interceptor/http-header.interceptor';
 import { TransactionMainComponent } from './pages/transaction/transaction-main/transaction-main.component';
 import { MaintenanceMainComponent } from './pages/maintenance/maintenance-main/maintenance-main.component';
+import { LoginPageComponent } from './login/login-page/login-page.component';
 
 registerLocaleData(en);
 
@@ -41,6 +42,7 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     HomeComponent,
     TransactionMainComponent,
     MaintenanceMainComponent,
+    LoginPageComponent,
   ],
   imports: [
     FormsModule,

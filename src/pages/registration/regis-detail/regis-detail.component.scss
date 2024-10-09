@@ -1,0 +1,108 @@
+.registration-main {
+
+    // font-family: DB Heavent;
+
+    .header {
+        background: #f0f2f5;
+        padding: 3%;
+    }
+
+    .question-icon {
+        width: 16px;
+        height: 16px;
+        color: #959199;
+    }
+
+    nz-select {
+        width: 100%;
+    }
+}
+
+
+.display{
+    display: inline-flex;
+}
+
+.iconPosition{
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+// .styleprogress100{
+//     background-color: #06BF59;
+//     height: 43px;
+//     width: 41px;
+//     border-radius: 60px;
+// }
+
+// .styleprogress0{
+//     height: 43px;
+//     width: 41px;
+//     border-radius: 60px;
+//     border: 3px solid #06BF59;
+// }
+.paddingtop{
+    padding-top: 15px;
+}
+.paddingFrom{
+    padding-top: 5px;
+    // font-family: DB Heavent;
+    font-weight: 700;
+}
+::ng-deep .ant-steps-item-finish .ant-steps-item-icon {
+    background-color: #06BF59;
+    border-color: #06BF59;
+}
+
+::ng-deep .ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon {
+    color: #ffffff;
+}
+
+::ng-deep .ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title::after, .ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-tail::after {
+    background-color: #06BF59;
+}
+
+::ng-deep.ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-icon {
+    background: #ffffff;
+    border-color: #06BF59;
+}
+
+// ::ng-deep .ant-steps-item-content, .ant-steps-item-icon {
+//     display: block;
+//     vertical-align: top;
+// }
+
+.collapse {
+   visibility: inherit; 
+}
+
+.accordion-button:not(.collapsed) {
+    color: #000000;
+    background-color: #fff;
+    box-shadow: inset 0 calc(-1* var(--bs-accordion-border-width)) 0 var(--bs-accordion-border-color);
+}
+
+// .ant-table-wrapper .ant-table {
+//     margin: -16px; /* Adjust as needed */
+// }
+
+::ng-deep.ant-table-tbody > tr > td > .ant-table-expanded-row-fixed > .ant-table-wrapper:only-child .ant-table, .ant-table-tbody > tr > td > .ant-table-wrapper:only-child .ant-table{
+    margin: -16px -16px -16px -16px;
+}   
+
+// .ant-table-row-expand-icon-expanded {
+    /* สไตล์สำหรับไอคอนที่ขยาย */
+// }
+
+// .ant-table-row-expand-icon-collapsed {
+    /* สไตล์สำหรับไอคอนที่หด */
+// }
+
+.inner-table-wrapper {
+    overflow: hidden;
+    background-color: white; 
+}
+
+.nested-table {
+    width: 100%; 
+}
